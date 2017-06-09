@@ -13,8 +13,6 @@ export default class AddForm extends Component {
     }
 
     handleInputChange(event, type) {
-        console.log('event:', event.target.value);
-
         const { form } = this.state;
 
         form[type] = event.target.value;

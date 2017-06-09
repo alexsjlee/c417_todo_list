@@ -11,12 +11,12 @@ class ViewList extends Component {
         const listElements = this.props.list.map((item, index) => {
             return (
 
-                <li className={item.completed ? liComplete : liNotComplete} key={index}>
-                    {`${item.title}: ${item.details}`}
+                <li className={item.complete ? liComplete : liNotComplete} key={index}>
+                    {`${item.title} | Completed: ${item.complete}`}
                     <span className="ml-auto">
-                        <button className={item.completed ? btnComplete : btnNotComplete} onClick={() => this.props.delete(index)}>Delete</button>
+                        <button className={item.complete ? btnComplete : btnNotComplete} onClick={() => this.props.delete(item._id)}>Delete</button>
                         <span> </span>
-                        <button className="btn btn-success btn btn-sm" onClick={() => this.props.complete(index)}>{item.completed ? 'JK Not Complete' : 'Complete'}</button>
+                        <button className="btn btn-success btn btn-sm" onClick={() => this.props.complete(item._id)}>{item.complete ? 'JK Not Complete' : 'Complete'}</button>
                     </span>
                 </li>
             );
