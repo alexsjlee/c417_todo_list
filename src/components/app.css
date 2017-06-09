@@ -1,5 +1,10 @@
+ul {
+    margin: 2vh 0;
+}
+
 .toggleComplete {
-    background-color: cornflowerblue;
+    background-color: lightgrey;
+    text-decoration: line-through;
 }
 
 .hidden {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './app.css';
 
 class ViewList extends Component {
 
@@ -12,10 +11,10 @@ class ViewList extends Component {
             return (
 
                 <li className={item.complete ? liComplete : liNotComplete} key={index}>
-                    {`${item.title} | Completed: ${item.complete}`}
+                    {`${item.title}`}
                     <span className="ml-auto">
                         <button className={item.complete ? btnComplete : btnNotComplete} onClick={() => this.props.delete(item._id)}>Delete</button>
-                        <span> </span>
+                        <span></span>
                         <button className="btn btn-success btn btn-sm" onClick={() => this.props.complete(item._id)}>{item.complete ? 'JK Not Complete' : 'Complete'}</button>
                     </span>
                 </li>
