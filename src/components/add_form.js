@@ -17,7 +17,6 @@ class AddForm extends Component {
         const { handleSubmit } = this.props;
         return(
             <div>
-                <Link to="/" className="btn btn-outline-primary">Go Back</Link>
                 <h1>Add a To Do Item</h1>
                 <div className="col-6">
                     <form onSubmit={handleSubmit( (value) => this.onFormSubmit(value) )}>

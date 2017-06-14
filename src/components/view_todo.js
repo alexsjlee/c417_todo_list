@@ -43,8 +43,10 @@ class ViewTodo extends Component {
             <div>
                 <Link to="/" className="btn btn-outline-primary">Back to List</Link>
                 <h1>Title: {todo.title}</h1>
+                <hr/>
                 <h4>{`Created on ${this.handleDateStamp(todo.created)} at ${this.handleTimeStamp(todo.created)}`}</h4>
                 {todo.complete ? <h4>{`Completed on ${this.handleDateStamp(todo.completed)} at ${this.handleTimeStamp(todo.completed)}`}</h4> : <h4>Not Completed</h4>}
+                <hr/>
                 <h4>Details: {todo.details}</h4>
                 
                 <button className={`btn btn-outline-${todo.complete ? 'danger' : 'primary'}`} onClick={() => this.handleComplete()}>{todo.complete ? 'JK Not Complete' : 'Complete Item'}</button>
