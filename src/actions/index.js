@@ -1,4 +1,4 @@
-import { FETCH_ALL, GET_ONE, ADD_TODO, DELETE_TODO } from './types';
+import { FETCH_ALL, GET_ONE, ADD_TODO, DELETE_TODO, TOGGLE_COMPLETE } from './types';
 import axios from 'axios';
 
 const BASE_URL = 'http://api.scottbowlerdev.com';
@@ -36,6 +36,15 @@ export function delete_todo(id) {
 
     return {
         type: DELETE_TODO,
+        payload: request
+    }
+}
+
+export function toggle_complete(id) {
+    const request = axios.put(`${BASE_URL}/todos/${id + API_KEY}`);
+
+    return {
+        type: TOGGLE_COMPLETE,
         payload: request
     }
 }

@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { get_one, delete_todo } from '../actions/index';
+import * as actions from '../actions/index';
 
 class ViewTodo extends Component {
 
@@ -18,6 +18,19 @@ class ViewTodo extends Component {
 
     }
 
+    handleComplete() {
+        console.info('Toggle Complete Clicked!');
+        this.props.toggle_complete(this.props.todo._id);
+    }
+
+    handleDateStamp(time) {
+        return new Date(Number(time)).toLocaleDateString();
+    }
+
+    handleTimeStamp(time) {
+        return new Date(Number(time)).toLocaleTimeString();
+    }
+
     render() {
         console.log('Single Todo:', this.props.todo);
         const { todo } = this.props;
@@ -30,7 +43,11 @@ class ViewTodo extends Component {
             <div>
                 <Link to="/" className="btn btn-outline-primary">Back to List</Link>
                 <h1>Title: {todo.title}</h1>
+                <h4>{`Created on ${this.handleDateStamp(todo.created)} at ${this.handleTimeStamp(todo.created)}`}</h4>
+                {todo.complete ? <h4>{`Completed on ${this.handleDateStamp(todo.completed)} at ${this.handleTimeStamp(todo.completed)}`}</h4> : <h4>Not Completed</h4>}
                 <h4>Details: {todo.details}</h4>
+                
+                <button className={`btn btn-outline-${todo.complete ? 'danger' : 'primary'}`} onClick={() => this.handleComplete()}>{todo.complete ? 'JK Not Complete' : 'Complete Item'}</button>
                 <button className="btn btn-outline-danger" onClick={() => this.handleDelete()}>Delete To Do Item</button>
             </div>
         )
@@ -43,4 +60,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { get_one, delete_todo })(ViewTodo);
+export default connect(mapStateToProps, actions)(ViewTodo);
