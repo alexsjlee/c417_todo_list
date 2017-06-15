@@ -15,7 +15,6 @@ class ViewTodo extends Component {
         this.props.delete_todo(this.props.todo._id).then(() => {
             this.props.history.push('/')
         });
-
     }
 
     handleComplete() {

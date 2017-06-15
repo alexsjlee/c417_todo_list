@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import {
     Link,
-    Route
 } from 'react-router-dom';
 
 export default class NavBar extends Component {
-    // componentDidMount() {
-    //     console.log(this.props);
-    // }
-
     render() {
-        console.log(this.props);
-        console.log('navbar', this.props.location.pathname);
-
         return(
             <nav className="navbar navbar-toggleable-md navbar-light bg-faded">
                 <Link className="navbar-brand" to="/">To Do List</Link>
